@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>JavaScript DOM Practice — 60 Questions</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="layout">
+  <nav id="side-nav">
+    <h2>DOM Practice</h2>
+    <a href="#part1">1. Selection</a>
+    <a href="#part2">2. Styling</a>
+    <a href="#part3">3. Attributes</a>
+    <a href="#part4">4. Create/Remove</a>
+    <a href="#part5">5. Events</a>
+    <a href="#part6">6. Forms</a>
+    <a href="#part7">7. Delegation</a>
+    <a href="#part8">8. Traversal</a>
+    <a href="#part9">9. Mini Projects</a>
+  </nav>
+  <main>
+    <header>
+      <h1>JavaScript DOM Practice — 60 Questions</h1>
+      <p>Every demo below is live — click, type, and interact directly. Open your browser console (F12) to see logged output for questions that print to the console.</p>
+    </header>
+
+    <!-- ============================================================
+         PART 1: DOM SELECTION (1–8)
+    ============================================================= -->
+    <section class="part" id="part1">
+      <h2>Part 1 — DOM Selection</h2>
+      <div class="question">
+        <h3>1. getElementById() — change text</h3>
+        <p class="desc">Select an element using its unique id, then change its text.</p>
+        <div class="demo">
+          <p id="q1-target">Original text</p>
+          <button id="q1-btn">Change text</button>
+        </div>
+      </div>
+
+      <div class="question">
+        <h3>2. Select all elements with the same class</h3>
+        <p class="desc"><code>querySelectorAll</code> returns a NodeList — not a single element — so we loop over it.</p>
+        <div class="demo">
+          <p class="q2-item">Item A</p>
+          <p class="q2-item">Item B</p>
+          <p class="q2-item">Item C</p>
+          <button id="q2-btn">Change all texts</button>
+        </div>
+      </div>
+
+      <div class="question">
+        <h3>3. querySelector() — first paragraph</h3>
+        <p class="desc"><code>querySelector</code> always returns only the FIRST match, even if several elements qualify.</p>
+        <div class="demo">
+          <p class="q3-para">First paragraph</p>
+          <p class="q3-para">Second paragraph</p>
+          <button id="q3-btn">Highlight first paragraph only</button>
+        </div>
+      </div>
+
+      <div class="question">
+        <h3>4. querySelectorAll() — change color of all paragraphs</h3>
+        <div class="demo">
+          <p class="q4-para">Paragraph one</p>
+          <p class="q4-para">Paragraph two</p>
+          <button id="q4-btn">Turn all paragraphs blue</button>
+        </div>
+      </div>
+
+      <div class="question">
+        <h3>5. textContent — log to console</h3>
+        <p class="desc"><code>textContent</code> returns the raw text only, ignoring any HTML tags inside the element.</p>
+        <div class="demo">
+          <p id="q5-target">Hello <strong>World</strong></p>
+          <button id="q5-btn">Log textContent</button>
+        </div>
+      </div>
+
+      <div class="question">
+        <h3>6. innerHTML — log to console</h3>
+        <p class="desc">Unlike <code>textContent</code>, <code>innerHTML</code> includes the HTML tags as a string.</p>
+        <div class="demo">
+          <p id="q6-target">Hello <strong>World</strong></p>
+          <button id="q6-btn">Log innerHTML</button>
+        </div>
+      </div>
+
+      <div class="question">
+        <h3>7. Change &lt;h1&gt; text on click</h3>
+        <div class="demo">
+          <h1 id="q7-heading" style="font-size:20px;">Original Heading</h1>
+          <button id="q7-btn">Change heading</button>
+        </div>
+      </div>
+
+      <div class="question">
+        <h3>8. Replace HTML inside a &lt;div&gt;</h3>
+        <p class="desc">Setting <code>innerHTML</code> completely replaces everything inside the element, including child tags.</p>
+        <div class="demo">
+          <div id="q8-container"><p>Old content</p></div>
+          <button id="q8-btn">Replace content</button>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ============================================================
+         PART 2: STYLING ELEMENTS (9–15)
+    ============================================================= -->
+    <section class="part" id="part2">
+      <h2>Part 2 — Styling Elements</h2>
+      <div class="question">
+        <h3>9. Change background color of a &lt;div&gt;</h3>
+        <div class="demo">
+          <div id="q9-box" style="padding:16px;border-radius:6px;">Colored box</div>
+          <button id="q9-btn" style="margin-top:10px;">Change background</button>
+        </div>
+      </div>
+
+      <div class="question">
+        <h3>10. Increase font size of a paragraph</h3>
+        <div class="demo">
+          <p id="q10-text">This text will grow.</p>
+          <button id="q10-btn">Increase font size</button>
+        </div>
+      </div>
+
+      <div class="question">
+        <h3>11 &amp; 12. Hide and show an element</h3>
+        <div class="demo">
+          <p id="q11-text">You can see me.</p>
+          <button id="q11-hide-btn">Hide</button>
+          <button id="q12-show-btn">Show</button>
+        </div>
+      </div>
+
+      <div class="question">
+        <h3>13. Toggle a CSS class on click</h3>
+        <p class="desc"><code>classList.toggle()</code> adds the class if missing, removes it if present — one method for both directions.</p>
+        <div class="demo">
+          <p id="q13-text">Toggle my highlight class.</p>
+          <button id="q13-btn">Toggle highlight</button>
+        </div>
+      </div>
+
+      <div class="question">
+        <h3>14. Add multiple CSS classes at once</h3>
+        <div class="demo">
+          <p id="q14-text">Multiple classes coming...</p>
+          <button id="q14-btn">Add classes</button>
+        </div>
+      </div>
+
+      <div class="question">
+        <h3>15. Remove a CSS class</h3>
+        <div class="demo">
+          <p id="q15-text" class="highlight-class">I start highlighted.</p>
+          <button id="q15-btn">Remove highlight</button>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ============================================================
+         PART 3: ATTRIBUTES (16–20)
+    ============================================================= -->
+    <section class="part" id="part3">
+      <h2>Part 3 — Attributes</h2>
+      <div class="question">
+        <h3>16. Change the src of an image</h3>
+        <div class="demo">
+          <img id="q16-img" src="https://placehold.co/80x80/263457/e7ecf7?text=A" width="80" height="80" alt="Placeholder" style="border-radius:6px;display:block;margin-bottom:10px;" />
+          <button id="q16-btn">Swap image</button>
+        </div>
+      </div>
+
+      <div class="question">
+        <h3>17. Change the href of a link</h3>
+        <div class="demo">
+          <a id="q17-link" href="https://example.com" target="_blank" rel="noopener">Visit link</a>
+          <button id="q17-btn" style="margin-left:10px;">Change link target</button>
+        </div>
+      </div>
+
+      <div class="question">
+        <h3>18. Add a custom data-* attribute</h3>
+        <p class="desc"><code>data-*</code> attributes store custom info directly on an element, readable via the <code>dataset</code> property.</p>
+        <div class="demo">
+          <p id="q18-text">Click to tag this element</p>
+          <button id="q18-btn">Add data-user-id="42"</button>
+        </div>
+      </div>
+
+      <div class="question">
+        <h3>19. Remove an attribute</h3>
+        <div class="demo">
+          <input id="q19-input" type="text" disabled placeholder="I start disabled" />
+          <button id="q19-btn">Remove disabled attribute</button>
+        </div>
+      </div>
+
+      <div class="question">
+        <h3>20. Check whether an element has an attribute</h3>
+        <div class="demo">
+          <p id="q20-text" title="I have a title">Hover-check me</p>
+          <button id="q20-btn">Check for title attribute</button>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ============================================================
+         PART 4: CREATING & REMOVING ELEMENTS (21–28)
+    ============================================================= -->
+    <section class="part" id="part4">
+      <h2>Part 4 — Creating &amp; Removing Elements</h2>
+      <div class="question">
+        <h3>21. Create a paragraph and append it</h3>
+        <div class="demo">
+          <div id="q21-container"></div>
+          <button id="q21-btn">Append new paragraph</button>
+        </div>
+      </div>
+
+      <div class="question">
+        <h3>22. Create a button dynamically</h3>
+        <div class="demo">
+          <div id="q22-container"></div>
+          <button id="q22-btn">Create a button</button>
+        </div>
+      </div>
+
+      <div class="question">
+        <h3>23 &amp; 24. Insert before / after a target element</h3>
+        <div class="demo">
+          <div id="q23-container">
+            <p id="q23-target">Target element</p>
+          </div>
+          <button id="q23-before-btn">Insert before</button>
+          <button id="q24-after-btn">Insert after</button>
+        </div>
+      </div>
+
+      <div class="question">
+        <h3>25. Remove a specific element</h3>
+        <div class="demo">
+          <p id="q25-target">Click the button to remove me</p>
+          <button id="q25-btn">Remove this paragraph</button>
+        </div>
+      </div>
+
+      <div class="question">
+        <h3>26. Remove all children from a container</h3>
+        <div class="demo">
+          <ul id="q26-list">
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+          </ul>
+          <button id="q26-btn">Clear list</button>
+        </div>
+      </div>
+
+      <div class="question">
+        <h3>27. Replace one element with another</h3>
+        <div class="demo">
+          <p id="q27-old">I will be replaced</p>
+          <button id="q27-btn">Replace me</button>
+        </div>
+      </div>
+
+      <div class="question">
+        <h3>28. Clone an existing element</h3>
+        <div class="demo">
+          <div id="q28-container">
+            <p id="q28-original">Clone this paragraph</p>
+          </div>
+          <button id="q28-btn">Clone it</button>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ============================================================
+         PART 5: EVENT HANDLING (29–38)
+    ============================================================= -->
+    <section class="part" id="part5">
+      <h2>Part 5 — Event Handling</h2>
+      <div class="question">
+        <h3>29. Alert on button click</h3>
+        <div class="demo"><button id="q29-btn">Click for alert</button></div>
+      </div>
+
+      <div class="question">
+        <h3>30. Count button clicks</h3>
+        <div class="demo">
+          <button id="q30-btn">Click me</button>
+          <p class="output" id="q30-output">Clicks: 0</p>
+        </div>
+      </div>
+
+      <div class="question">
+        <h3>31. Track mouse coordinates over a container</h3>
+        <div class="demo">
+          <div id="q31-area" style="height:80px;border:1px solid var(--panel-border);border-radius:6px;">
+            <p class="output" id="q31-output">Move your mouse here...</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="question">
+        <h3>32 &amp; 33. Change text on mouse enter, restore on mouse leave</h3>
+        <div class="demo">
+          <p id="q32-text" style="padding:14px;border:1px solid var(--panel-border);border-radius:6px;">Hover over me</p>
+        </div>
+      </div>
+
+      <div class="question">
+        <h3>34. Display the key pressed in an input</h3>
+        <div class="demo">
+          <input id="q34-input" type="text" placeholder="Type a key..." />
+          <p class="output" id="q34-output">Last key: (none)</p>
+        </div>
+      </div>
+
+      <div class="question">
+        <h3>35. Prevent default form submission</h3>
+        <div class="demo">
+          <form id="q35-form">
+            <input type="text" placeholder="Type anything" />
+            <button type="submit">Submit</button>
+          </form>
+          <p class="output" id="q35-output"></p>
+        </div>
+      </div>
+
+      <div class="question">
+        <h3>36. Log input value on every keystroke</h3>
+        <div class="demo">
+          <input id="q36-input" type="text" placeholder="Start typing..." />
+          <p class="output" id="q36-output"></p>
+        </div>
+      </div>
+
+      <div class="question">
+        <h3>37. Detect Enter key press</h3>
+        <div class="demo">
+          <input id="q37-input" type="text" placeholder="Press Enter..." />
+          <p class="output" id="q37-output"></p>
+        </div>
+      </div>
+
+      <div class="question">
+        <h3>38. Disable a button after one click</h3>
+        <div class="demo"><button id="q38-btn">Click once</button></div>
+      </div>
+
+    </section>
+
+    <!-- ============================================================
+         PART 6: FORMS (39–45)
+    ============================================================= -->
+    <section class="part" id="part6">
+      <h2>Part 6 — Forms</h2>
+      <div class="question">
+        <h3>39. Login form — validate all fields filled</h3>
+        <div class="demo">
+          <form id="q39-form">
+            <input type="text" id="q39-username" placeholder="Username" /><br /><br />
+            <input type="password" id="q39-password" placeholder="Password" /><br /><br />
+            <button type="submit">Log in</button>
+          </form>
+          <p class="error-text" id="q39-error"></p>
+        </div>
+      </div>
+
+      <div class="question">
+        <h3>40. Validate an email address</h3>
+        <div class="demo">
+          <input id="q40-email" type="text" placeholder="you@example.com" />
+          <button id="q40-btn">Validate</button>
+          <p class="error-text" id="q40-output"></p>
+        </div>
+      </div>
+
+      <div class="question">
+        <h3>41. Validate password length</h3>
+        <div class="demo">
+          <input id="q41-password" type="password" placeholder="Min 8 characters" />
+          <button id="q41-btn">Validate</button>
+          <p class="error-text" id="q41-output"></p>
+        </div>
+      </div>
+
+      <div class="question">
+        <h3>42. Display error messages below invalid inputs</h3>
+        <div class="demo">
+          <input id="q42-input" type="text" placeholder="Required field" />
+          <span class="error-text" id="q42-error" style="display:block;"></span>
+          <button id="q42-btn">Submit</button>
+        </div>
+      </div>
+
+      <div class="question">
+        <h3>43. Reset a form</h3>
+        <div class="demo">
+          <form id="q43-form">
+            <input type="text" placeholder="Type something" /><br /><br />
+            <button type="button" id="q43-btn">Reset form</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="question">
+        <h3>44. Display submitted form data inside a card</h3>
+        <div class="demo">
+          <form id="q44-form">
+            <input type="text" id="q44-name" placeholder="Your name" /><br /><br />
+            <button type="submit">Submit</button>
+          </form>
+          <div id="q44-card"></div>
+        </div>
+      </div>
+
+      <div class="question">
+        <h3>45. Live character counter for a textarea</h3>
+        <div class="demo">
+          <textarea id="q45-textarea" maxlength="100" rows="3" style="width:100%;" placeholder="Max 100 characters..."></textarea>
+          <p class="output" id="q45-output">0 / 100</p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ============================================================
+         PART 7: EVENT DELEGATION & PROPAGATION (46–50)
+    ============================================================= -->
+    <section class="part" id="part7">
+      <h2>Part 7 — Event Delegation &amp; Propagation</h2>
+      <div class="question">
+        <h3>46 &amp; 47. Event delegation for dynamic list items</h3>
+        <p class="desc">One listener on the parent <code>&lt;ul&gt;</code> handles clicks on ALL items — including ones added later — because clicks bubble up from the item to the parent.</p>
+        <div class="demo">
+          <ul id="q46-list">
+            <li>Existing item 1</li>
+            <li>Existing item 2</li>
+          </ul>
+          <button id="q46-add-btn">Add new item</button>
+          <p class="output" id="q46-output"></p>
+        </div>
+      </div>
+
+      <div class="question">
+        <h3>48 &amp; 49. Event bubbling — and stopping it</h3>
+        <div class="demo">
+          <div id="q48-outer" style="padding:20px;border:1px solid var(--panel-border);border-radius:6px;">
+            Outer (click anywhere here)
+            <div id="q48-inner" style="padding:20px;margin-top:10px;border:1px solid var(--accent);border-radius:6px;">
+              Inner (bubbles by default)
+              <div id="q49-inner-stopped" style="padding:20px;margin-top:10px;border:1px solid var(--bad);border-radius:6px;">
+                This one calls stopPropagation()
+              </div>
+            </div>
+          </div>
+          <p class="output" id="q48-output"></p>
+        </div>
+      </div>
+
+      <div class="question">
+        <h3>50. Event capturing</h3>
+        <p class="desc">Capturing runs listeners top-down (outer → inner) BEFORE the normal bubbling phase runs bottom-up (inner → outer).</p>
+        <div class="demo">
+          <div id="q50-outer" style="padding:20px;border:1px solid var(--panel-border);border-radius:6px;">
+            Outer (capture phase)
+            <div id="q50-inner" style="padding:20px;margin-top:10px;border:1px solid var(--accent);border-radius:6px;">
+              Inner (click me)
+            </div>
+          </div>
+          <p class="output" id="q50-output"></p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ============================================================
+         PART 8: DOM TRAVERSAL (51–54)
+    ============================================================= -->
+    <section class="part" id="part8">
+      <h2>Part 8 — DOM Traversal</h2>
+      <div class="question">
+        <h3>51. Find the parent of an element</h3>
+        <div class="demo">
+          <div id="q51-parent" style="padding:14px;border:1px solid var(--panel-border);border-radius:6px;">
+            Parent
+            <p id="q51-child">Child (click me)</p>
+          </div>
+          <p class="output" id="q51-output"></p>
+        </div>
+      </div>
+
+      <div class="question">
+        <h3>52. Find first child and last child</h3>
+        <div class="demo">
+          <ul id="q52-list">
+            <li>First</li>
+            <li>Middle</li>
+            <li>Last</li>
+          </ul>
+          <button id="q52-btn">Log first &amp; last child</button>
+        </div>
+      </div>
+
+      <div class="question">
+        <h3>53. Find previous and next sibling</h3>
+        <div class="demo">
+          <ul id="q53-list">
+            <li>Item 1</li>
+            <li id="q53-middle">Item 2 (click me)</li>
+            <li>Item 3</li>
+          </ul>
+          <p class="output" id="q53-output"></p>
+        </div>
+      </div>
+
+      <div class="question">
+        <h3>54. Loop through all children of a container</h3>
+        <div class="demo">
+          <ul id="q54-list">
+            <li>Alpha</li>
+            <li>Beta</li>
+            <li>Gamma</li>
+          </ul>
+          <button id="q54-btn">Log all children</button>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ============================================================
+         PART 9: MINI PROJECTS (55–60)
+    ============================================================= -->
+    <section class="part" id="part9">
+      <h2>Part 9 — Mini Projects</h2>
+      <div class="question">
+        <h3>55. Todo List</h3>
+        <p class="desc">Add, delete, complete, filter, and clear tasks.</p>
+        <div class="demo">
+          <form id="todo-form" style="display:flex;gap:8px;">
+            <input id="todo-input" type="text" placeholder="Add a task..." style="flex:1;" />
+            <button type="submit">Add</button>
+          </form>
+          <div style="margin:10px 0;display:flex;gap:6px;">
+            <button class="ghost todo-filter-btn" data-filter="all">All</button>
+            <button class="ghost todo-filter-btn" data-filter="active">Active</button>
+            <button class="ghost todo-filter-btn" data-filter="completed">Completed</button>
+            <button class="ghost" id="todo-clear-btn">Clear all</button>
+          </div>
+          <ul id="todo-list" style="list-style:none;padding:0;margin:0;"></ul>
+        </div>
+      </div>
+
+      <div class="question">
+        <h3>56. Counter App</h3>
+        <p class="desc">Increment, decrement, reset, and view a history of changes.</p>
+        <div class="demo">
+          <p class="output" id="counter-value" style="font-size:28px;color:var(--text);">0</p>
+          <button id="counter-dec">−</button>
+          <button id="counter-inc">+</button>
+          <button class="ghost" id="counter-reset">Reset</button>
+          <p style="margin-top:12px;color:var(--muted);font-size:13px;">History:</p>
+          <p class="output" id="counter-history">(none yet)</p>
+        </div>
+      </div>
+
+      <div class="question">
+        <h3>57. Image Gallery</h3>
+        <p class="desc">Thumbnail preview, next/previous, and keyboard navigation (click the main image first, then use ← / →).</p>
+        <div class="demo">
+          <img id="gallery-main" src="" alt="Gallery preview" tabindex="0" style="width:100%;max-width:320px;border-radius:8px;display:block;" />
+          <div id="gallery-thumbs" style="display:flex;gap:8px;margin-top:10px;"></div>
+          <div style="margin-top:10px;">
+            <button id="gallery-prev">← Previous</button>
+            <button id="gallery-next">Next →</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="question">
+        <h3>58. Digital Clock</h3>
+        <p class="desc">Live time, date, and a 12/24-hour toggle.</p>
+        <div class="demo">
+          <p class="output" id="clock-time" style="font-size:26px;color:var(--text);"></p>
+          <p class="output" id="clock-date"></p>
+          <button id="clock-toggle-format">Toggle 12h / 24h</button>
+        </div>
+      </div>
+
+      <div class="question">
+        <h3>59. Notes App</h3>
+        <p class="desc">Add, edit, delete, search, and save notes using <code>localStorage</code>.</p>
+        <div class="demo">
+          <div style="display:flex;gap:8px;">
+            <input id="notes-input" type="text" placeholder="Write a note..." style="flex:1;" />
+            <button id="notes-add-btn">Add note</button>
+          </div>
+          <input id="notes-search" type="text" placeholder="Search notes..." style="margin-top:8px;width:100%;" />
+          <div id="notes-list" style="margin-top:12px;display:flex;flex-direction:column;gap:8px;"></div>
+        </div>
+      </div>
+
+      <div class="question">
+        <h3>60. Quiz App</h3>
+        <p class="desc">Multiple-choice questions, scoring, navigation, a progress indicator, and a results screen.</p>
+        <div class="demo">
+          <p class="output" id="quiz-progress"></p>
+          <div id="quiz-question-container"></div>
+          <div style="margin-top:12px;">
+            <button id="quiz-prev-btn" class="ghost">← Previous</button>
+            <button id="quiz-next-btn">Next →</button>
+            <button id="quiz-restart-btn" class="ghost hidden">Restart quiz</button>
+          </div>
+          <div id="quiz-results"></div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+</div>
+
+ <script src="script.js"></script>
+</body>
+</html>
